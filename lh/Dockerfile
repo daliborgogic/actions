@@ -21,4 +21,5 @@ RUN set -x \
 WORKDIR /app
 COPY . .
 RUN npm ci --production
-ENTRYPOINT ["sh", "/entrypoint.sh"]
+RUN ls -la
+ENTRYPOINT ["sh", "./entrypoint.sh"]
