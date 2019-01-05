@@ -21,5 +21,4 @@ RUN set -x \
 WORKDIR /app
 COPY . .
 RUN npm ci --production
-# ENTRYPOINT ["/usr/bin/dumb-init"]
-CMD ["node", "index.js"]
+ENTRYPOINT ["sh", "/entrypoint.sh"]
