@@ -1,0 +1,13 @@
+{
+  "name": "lh",
+  "version": "1.0.0",
+  "description": "###",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "dependencies": {
+    "lighthouse": "^4.0.0-alpha.2-3.2.1",
+    "puppeteer-core": "^1.11.0"
+  }
+}
