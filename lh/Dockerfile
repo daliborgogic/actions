@@ -20,6 +20,8 @@ RUN set -x \
     && echo
 WORKDIR /app
 COPY . .
+COPY "entrypoint.sh" "/entrypoint.sh"
+
 RUN npm ci --production
 RUN ls -la
-ENTRYPOINT ["sh", "entrypoint.sh"]
+ENTRYPOINT ["sh", "/entrypoint.sh"]
