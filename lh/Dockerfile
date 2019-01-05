@@ -18,9 +18,10 @@ RUN set -x \
     && rm -rf /usr/include \
     && rm -rf /var/cache/apk/* /root/.node-gyp /usr/share/man /tmp/* \
     && echo
+WORKDIR /app
 COPY . .
 COPY "entrypoint.sh" "/entrypoint.sh"
 
 RUN npm ci --production
 RUN ls -la
-ENTRYPOINT ["sh", "/entrypoint.sh"]
+ENTRYPOINT ["sh", "/app/entrypoint.sh"]
