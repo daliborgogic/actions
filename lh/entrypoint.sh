@@ -1,4 +1,4 @@
 #!/bin/sh
-
+set -e
 export URL=$*
-sh -c "node index.js"
+sh -c "URL=$* npm start"
