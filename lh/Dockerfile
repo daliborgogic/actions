@@ -18,7 +18,6 @@ RUN set -x \
     && rm -rf /usr/include \
     && rm -rf /var/cache/apk/* /root/.node-gyp /usr/share/man /tmp/* \
     && echo
-WORKDIR /app
 COPY . .
 COPY "entrypoint.sh" "/entrypoint.sh"
 
