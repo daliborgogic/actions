@@ -2,22 +2,22 @@
 
 set -e
 
-PATH="/github/home/.ssh"
+SET_PATH="/github/home/.ssh"
 
-mkdir .ssh
-touch "$PATH/known_hosts"
+mkdir "$SET_PATH"
+touch "$SET_PATH/known_hosts"
 
-echo "$PRIVATE" > "$PATH/deploy_key"
-echo "$PUBLIC" > "$PATH/deploy_key.pub"
+echo "$PRIVATE" > "$SET_PATH/deploy_key"
+echo "$PUBLIC" > "$SET_PATH/deploy_key.pub"
 
-chmod 700 "$PATH"
-chmod 600 "$PATH/known_hosts"
-chmod 600 "$PATH/deploy_key"
-chmod 600 "$PATH/deploy_key.pub"
+chmod 700 "$SET_PATH"
+chmod 600 "$SET_PATH/known_hosts"
+chmod 600 "$SET_PATH/deploy_key"
+chmod 600 "$SET_PATH/deploy_key.pub"
 
 eval $(ssh-agent)
-ssh-add "$PATH/deploy_key"
+ssh-add "$SET_PATH/deploy_key"
 
-ssh-keyscan -t rsa $HOST >> "$PATH/known_hosts"
+ssh-keyscan -t rsa $HOST >> "$SET_PATH/known_hosts"
 
 ssh -A -tt -o 'StrictHostKeyChecking=no' $USER@$HOST "$*"
