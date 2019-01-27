@@ -1,4 +1,4 @@
-FROM alpine:3.8.2
+FROM alpine:3.8
 
 LABEL "maintainer"="daliborgogic <mail@daliborgogic.com>"
 LABEL "repository"="https://github.com/daliborgogic/actions"
