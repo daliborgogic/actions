@@ -11,6 +11,6 @@ LABEL "com.github.actions.color"="yellow"
 
 RUN apk add --no-cache openssh-client
 
-COPY entrypoint.sh /entrypoint.sh
+ADD entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["sh", "/entrypoint.sh"]

@@ -1,3 +1,0 @@
-action "dlbr" {
-  uses = "./dlbr/"
-}
