@@ -4,7 +4,7 @@ set -e
 
 PATH="/github/home/.ssh"
 
-mkdir "$PATH"
+mkdir .ssh
 touch "$PATH/known_hosts"
 
 echo "$PRIVATE" > "$PATH/deploy_key"
