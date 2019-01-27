@@ -2,4 +2,4 @@
 set -e
 export URL=$*
 cd app
-sh -c "URL=$* npm start"
+sh -c "URL=$* node ."
