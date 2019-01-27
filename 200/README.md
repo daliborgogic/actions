@@ -6,6 +6,8 @@ This action will simply check that a URL is returning a `200` HTTP status code
 before completing. You have the option to set how many seconds between checks
 and how many tries before it exits in failure.
 
+<img src="https://i.imgur.com/uW0tDTH.png" alt="">
+
 ## Usage
 
 ```
