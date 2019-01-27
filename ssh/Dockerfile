@@ -10,8 +10,7 @@ LABEL "com.github.actions.icon"="server"
 LABEL "com.github.actions.color"="orange"
 
 RUN apk update
-RUN apk add openssh-client && \
-  rm -Rf /var/lib/apt/lists/*
+RUN apk add openssh-client
 
 ADD entrypoint.sh /entrypoint.sh
 
