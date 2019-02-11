@@ -1,13 +1,20 @@
-#!/bin/sh
+#!/bin/sh -l
 
-set -eu
+set -e
 
-# Set deploy key
-SSH_PATH="$HOME/.ssh"
-mkdir "$SSH_PATH"
-echo "$DEPLOY_KEY" > "$SSH_PATH/deploy_key"
-chmod 600 "$SSH_PATH/deploy_key"
+# Authorize SSH Host
+mkdir -p /root/.ssh
+chmod 0700 /root/.ssh
 
+# Add the keys and set permissions
+echo "$PRIVATE" > /root/.ssh/id_rsa
+chmod 600 /root/.ssh/id_rsa
 
-# Do deployment
-sh -c "rsync $1 -e 'ssh -i $SSH_PATH/deploy_key -o StrictHostKeyChecking=no' $2 $GITHUB_WORKSPACE/ $3"
+# Do
+sh -c "rsync --quiet -e 'ssh -o StrictHostKeyChecking=no' -arvc $GITHUB_WORKSPACE/ $USER@$HOST:$HOST_PATH"
+
+# Remove SSH keys
+rm -rf /root/.ssh/
+
+# Delete env file
+rm .env
