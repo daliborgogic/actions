@@ -1,7 +1,7 @@
 FROM alpine:3.8
 
 LABEL "maintainer"="maddox <mail@daliborgogic.com>"
-LABEL "repository"="https://github.com/daliborgogic/actions"
+LABEL "repository"="https://github.com/daliborgogic/actions/200"
 LABEL "version"="1.0.0"
 
 LABEL "com.github.actions.name"="200"
