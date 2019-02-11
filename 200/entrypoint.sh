@@ -1,9 +1,9 @@
 #!/bin/sh
 
-set -e
+HTTP_STATUS=$(curl --write-out %{http_code} --connect-timeout 5 --silent --output /dev/null "${URL}")
 
-STATUS=$(curl -L --max-time 1 -s -o /dev/null -w '%{http_code}' $URL)
-
-if [ $STATUS -ne 200 ]; then
+if [[ "$HTTP_STATUS" -ne 200 ]] ; then
   exit 1
+else
+  exit 0
 fi
