@@ -16,8 +16,6 @@ action "Deploy to X" {
 }
 ```
 
-### Required Arguments
-
 ### Required Secrets
 
 * `PRIVATE`: This should be the private key part of an ssh key pair.
