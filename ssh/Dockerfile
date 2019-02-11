@@ -1,7 +1,7 @@
 FROM alpine:3.8
 
-LABEL "maintainer"="daliborgogic <mail@daliborgogic.com>"
-LABEL "repository"="https://github.com/daliborgogic/actions"
+LABEL "maintainer"="Dalibor Gogic <mail@daliborgogic.com>"
+LABEL "repository"="https://github.com/daliborgogic/actions/ssh"
 LABEL "version"="1.0.0"
 
 LABEL "com.github.actions.name"="SSH"
