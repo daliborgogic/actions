@@ -15,6 +15,3 @@ sh -c "rsync --quiet -e 'ssh -o StrictHostKeyChecking=no' -arvc $GITHUB_WORKSPAC
 
 # Remove SSH keys
 rm -rf /root/.ssh/
-
-# Delete env file
-rm .env
