@@ -1,6 +1,6 @@
-# SSH for GitHub Actions
+# rsync
 
-Run a thing on your server.
+This GitHub Action deploys *everything* in `GITHUB_WORKSPACE` to a folder on a server via rsync over ssh. 
 
 This action will run the provided argument as a command on your $HOST via SSH.
 
@@ -8,30 +8,23 @@ This action will run the provided argument as a command on your $HOST via SSH.
 
 ```
 # .github/main.workflow
-action "Run deploy script" {
-  uses = "daliborgogic/actions/ssh@master"
-  args = "/opt/deploy/run"
-  secrets = [
-    "PRIVATE",
-    "PUBLIC",
-    "HOST",
-    "USER"
-  ]
+action "Deploy to X" {
+  uses = "daliborgogic/actions/rsync@master"
+  secrets = ["DEPLOY_KEY"]
+  args = ["-avzr --delete", "--exclude .htaccess --exclude /uploads/", "user@server.com:/srv/myapp/public/htdocs/"]
 }
 ```
 
 ### Required Arguments
 
-The argument you will use is the command that will be ran on your sever via SSH.
+This action can receive three ARGs:
 
-#### Examples
+1. The first is for any initial/required rsync flags, eg: `-avzr --delete`
 
-* ```args = "/opt/deploy/run"```
-* ```args = "touch ~/.reload"```
+2. The second is for any `--exclude` flags and directory pairs, eg: `--exclude .htaccess --exclude /uploads/`. Use "" if none required.
+
+3. The third is for the deployment target, and should be in the format: `[USER]@[HOST]:[PATH]`
 
 ### Required Secrets
 
-* **PRIVATE**: Your SSH private key.
-* **PUBLIC**: Your SSH public key.
-* **HOST**: The host the action will SSH to to run the command. ie, `example.com`.
-* **USER**: The user the SSH command will auth as with the public key.
+* **DEPLOY_KEY**: This should be the private key part of an ssh key pair. The public key part should be added to the authorized_keys file on the server that receives the deployment.
