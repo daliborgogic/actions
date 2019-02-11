@@ -6,7 +6,7 @@
 # .github/main.workflow
 action "Deploy to X" {
   uses = "daliborgogic/actions/rsync@master"
-  args = "--experimental build --squash -t [username]/[repo]:$GITHUB_SHA -f Dockerfile ."
+  args = "--experimental build --squash -t $GITHUB_REPOSITORY:$GITHUB_SHA -f Dockerfile ."
   secrets = [
   	"PRIVATE",
   	"HOST",
