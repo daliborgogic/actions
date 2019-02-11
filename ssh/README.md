@@ -22,7 +22,7 @@ action "Run deploy script" {
 
 ### Required Arguments
 
-The argument you will use is the command that will be ran on your sever via SSH.
+The argument you will use is the command that will be run on your sever via SSH.
 
 #### Examples
 
