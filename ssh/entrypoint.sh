@@ -20,4 +20,4 @@ ssh-add "$SET_PATH/deploy_key"
 
 ssh-keyscan -t rsa $HOST >> "$SET_PATH/known_hosts"
 
-ssh -A -tt -o 'StrictHostKeyChecking=no' $USER@$HOST "$*"
+ssh -A -tt -o UserKnownHostsFile=/dev/null -o 'StrictHostKeyChecking=no' $USER@$HOST "$*"ssh -A -tt -o 'StrictHostKeyChecking=no' $USER@$HOST "$*"
